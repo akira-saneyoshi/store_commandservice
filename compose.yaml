@@ -11,3 +11,25 @@ services:
     # command: sh -c "go mod tidy"
     ports:
       - 8082:8082
+  commandservice_db_container:
+    build:
+      context: .
+      dockerfile: ./docker/database/Dockerfile
+    env_file: ./docker/database/db_env_file
+    container_name: commandservice_db_container
+    volumes:
+      - type: volume
+        source: store_mysql-data
+        target: /var/lib/mysql
+      - type: bind
+        source: ./docker/database/init
+        target: /docker-entrypoint-initdb.d
+      - ./docker/database/logs:/var/log/mysql
+      - ./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - 3306:3306
+    links:
+      - commandservice
+volumes:
+  store_mysql-data:
+    name: store_mysql-data
