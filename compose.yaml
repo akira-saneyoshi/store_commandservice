@@ -1,0 +1,13 @@
+services:
+  commandservice:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: command-service
+    hostname: commandservice
+    tty: true
+    volumes:
+      - .:/opt/command_service
+    # command: sh -c "go mod tidy"
+    ports:
+      - 8082:8082
