@@ -18,14 +18,11 @@ services:
     env_file: ./docker/database/db_env_file
     container_name: commandservice_db_container
     volumes:
-      - type: volume
-        source: store_mysql-data
-        target: /var/lib/mysql
-      - type: bind
-        source: ./docker/database/init
-        target: /docker-entrypoint-initdb.d
-      - ./docker/database/logs:/var/log/mysql
+      - store_mysql-data:/var/lib/mysql
       - ./docker/database/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/database/DDL:/docker-entrypoint-initdb.d
+      - ./docker/database/DDL:/etc/ddl
+      - ./docker/database/logs:/var/log/mysql
     ports:
       - 3306:3306
     links:

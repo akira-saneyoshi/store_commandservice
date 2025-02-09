@@ -22,4 +22,6 @@ WORKDIR /opt/command_service
 COPY ./commands /opt/command_service
 RUN go mod tidy \
   && go install google.golang.org/protobuf/cmd/protoc-gen-go@latest \
-  && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest \
+  && go install github.com/volatiletech/sqlboiler/v4@latest \
+  && go install github.com/volatiletech/sqlboiler/v4/drivers/sqlboiler-mysql@latest
