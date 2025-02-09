@@ -40,3 +40,21 @@ grpcurl -plaintext localhost:8082 describe proto.CategoryCommand
 
 grpcurl -plaintext -d '{"crud":"1", "name":"食料品"}' localhost:8082 proto.CategoryCommand.Create
 ```
+
+```zsh
+apk update
+
+apk add curl
+
+wget -O mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64
+
+chmod +x mkcert
+
+mv mkcert /usr/local/bin/
+
+mkcert -install
+
+cd commands/presen/prepare/
+
+mkcert commandservice
+```
