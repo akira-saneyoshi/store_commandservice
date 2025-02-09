@@ -11,6 +11,8 @@ services:
     # command: sh -c "go mod tidy"
     ports:
       - 8082:8082
+    networks:
+      - external
   commandservice_db_container:
     build:
       context: .
@@ -27,6 +29,11 @@ services:
       - 3306:3306
     links:
       - commandservice
+    networks:
+      - external
+networks:
+  external:
+    name: storedb_net
 volumes:
   store_mysql-data:
     name: store_mysql-data
