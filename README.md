@@ -23,3 +23,10 @@ go install github.com/volatiletech/sqlboiler/v4/drivers/sqlboiler-mysql@latest
 go get -u github.com/akira-saneyoshi/store_pb@v1.0.0
 ```
 
+```zsh
+go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
+```
+
+```zsh
+go build -o commandservice main.go
+```
