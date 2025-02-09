@@ -25,4 +25,5 @@ RUN go mod tidy \
   && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest \
   && go install github.com/onsi/ginkgo/v2/ginkgo \
   && go install github.com/volatiletech/sqlboiler/v4@latest \
-  && go install github.com/volatiletech/sqlboiler/v4/drivers/sqlboiler-mysql@latest
+  && go install github.com/volatiletech/sqlboiler/v4/drivers/sqlboiler-mysql@latest \
+  && go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest

@@ -30,3 +30,13 @@ go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 ```zsh
 go build -o commandservice main.go
 ```
+
+```zsh
+grpcurl -plaintext localhost:8082 list
+
+grpcurl -plaintext localhost:8082 list proto.CategoryCommand
+
+grpcurl -plaintext localhost:8082 describe proto.CategoryCommand
+
+grpcurl -plaintext -d '{"crud":"1", "name":"食料品"}' localhost:8082 proto.CategoryCommand.Create
+```
